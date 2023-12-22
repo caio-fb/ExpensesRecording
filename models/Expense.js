@@ -8,7 +8,7 @@ const Expense = db.define("Expense", {
         required: true
     },
     mounth: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         required: true
     },
     day: {

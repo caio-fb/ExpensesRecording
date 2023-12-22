@@ -1,7 +1,7 @@
 const Expense = require("../models/Expense");
 
 module.exports = class ExpenseController{
-    static pageOfCreateExpense(req, res){
+    static pageOfCreatingExpense(req, res){
         res.render("expenses/create");
     }
 
@@ -17,6 +17,12 @@ module.exports = class ExpenseController{
 
         await Expense.create(expense);
 
-        res.redirect("/expenses/create");
+        res.redirect("/expenses/");
+    }
+
+    static async showExpenses(req, res){
+        const expenses = await Expense.findAll({raw: true});
+
+        res.render("expenses/all", {expenses});
     }
 }
